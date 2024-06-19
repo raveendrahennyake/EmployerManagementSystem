@@ -1,0 +1,1 @@
+CORS is a mechanism that allows a website on one URL to request data from a different URL in the form of image, text, or even an API. This is an HTTP-header-based mechanism that limits the server to load resources from any other ports or domains other than itself.
