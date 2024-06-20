@@ -58,7 +58,7 @@ const AddEmployeeComponent = () => {
                         </div>
 
                         <div>
-                            <button type="submit" className='btn btn-success'>Save</button>
+                            <button onClick={(e)=>postEmployer(e)} className='btn btn-success'>Save</button>
                             <button type="button" style={{ marginLeft: "10px" }} className='btn btn-danger'>Cancel</button>
                         </div>
                     </form>
