@@ -26,7 +26,7 @@ const AddEmployeeComponent = () => {
                     <h2 className='text-center'>Add Employer</h2>
                 </div>
                 <div className='card-body'>
-                    <form onSubmit={postEmployer}>
+                   
                         <div className='form-group mb-2'>
                             <input
                                 value={employer_name}
@@ -61,7 +61,7 @@ const AddEmployeeComponent = () => {
                             <button onClick={(e)=>postEmployer(e)} className='btn btn-success'>Save</button>
                             <button type="button" style={{ marginLeft: "10px" }} className='btn btn-danger'>Cancel</button>
                         </div>
-                    </form>
+                   
                 </div>
             </div>
         </div>
