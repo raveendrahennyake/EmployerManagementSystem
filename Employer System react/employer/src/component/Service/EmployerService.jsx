@@ -11,10 +11,14 @@ const postEmployers=(employer)=>{
   return axios.post(`${BASE_URL}/addEmployer`, employer);
 }
 
+const putEmployers=(employer,id)=>{
+  return axios.put(`${BASE_URL}/UpdateEmployer`,employer,id)
+}
 
 const EmployerService = {
   getEmployers,
-  postEmployers
+  postEmployers,
+  putEmployers
  
 };
 

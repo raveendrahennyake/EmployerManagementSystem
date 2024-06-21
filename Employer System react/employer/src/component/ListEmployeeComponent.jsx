@@ -32,7 +32,9 @@ const ListEmployeeComponent = () => {
                     <th>Employee Name</th>
                     <th>Phone Number</th>
                     <th> Email Address</th>
-                    <th> Actions</th>
+                    <th> Actions
+                      
+                    </th>
                     
                 </thead>
                 <tbody>
@@ -42,6 +44,17 @@ const ListEmployeeComponent = () => {
                             <td>{employee.employerName}</td>
                             <td>{employee.phoneNumber}</td>
                             <td>{employee.emailAddress}</td>
+                            <td>
+                            <Link to={`/add-employee/${employee.employerId}`}>
+                              <button style={{position: "relative", right: "9px"}} type="button" className="btn btn-danger">
+                                Update
+                              </button>
+                            </Link>
+
+                               <button  style={{position:"relative",left: "20px"}}  type="button" class="btn btn-secondary">Delect</button>
+
+                            </td>
+                           
                           
                         </tr>)}
 

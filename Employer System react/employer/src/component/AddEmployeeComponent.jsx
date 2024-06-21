@@ -1,29 +1,54 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import EmployerService from './Service/EmployerService';
+import { Link} from 'react-router-dom';
 
 const AddEmployeeComponent = () => {
+   const {id} = useParams();
+
+       
     const [employer_name, setEmployerName] = useState("");
     const [phone_number, setPhoneNumber] = useState("");
     const [email_address, setEmailAddress] = useState("");
 
     const employer = { employer_name, phone_number, email_address };
 
+
     const postEmployer = (e) => {
         e.preventDefault();
-        EmployerService.postEmployers(employer)
+        if(employer.employer_name!=='' &&  employer.phone_number.length>10 &&employer.email_address !==''){
+            EmployerService.postEmployers(employer)
             .then(() => {
                 console.log('Employer posted successfully');
             })
             .catch((err) => {
                 console.log(err);
             });
-    };
 
+        }
+        else {
+            alert("try again");
+        
+        }
+        
+    }
+    function title () {
+        if(id){
+            return "Update Employer"
+        }
+        else {
+            return "Add Employer"
+        }
+        
+    }
+    
+    
+   
     return (
         <div>
             <div className='container mt-5'>
                 <div className='card col-md-6 offset-md-3'>
-                    <h2 className='text-center'>Add Employer</h2>
+                    <h2 className='text-center'>{title()}</h2>
                 </div>
                 <div className='card-body'>
                    
@@ -59,7 +84,10 @@ const AddEmployeeComponent = () => {
 
                         <div>
                             <button onClick={(e)=>postEmployer(e)} className='btn btn-success'>Save</button>
-                            <button type="button" style={{ marginLeft: "10px" }} className='btn btn-danger'>Cancel</button>
+                            <Link to="/">
+                             <button style={{ marginLeft: "10px" }} className='btn btn-danger'>Cancel </button>
+                            </Link>
+                           
                         </div>
                    
                 </div>
