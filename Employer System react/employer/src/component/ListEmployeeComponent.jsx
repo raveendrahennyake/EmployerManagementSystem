@@ -10,7 +10,7 @@ const ListEmployeeComponent = () => {
       EmployerService.getEmployers()
         .then((res) => {
           setEmployerArr(res.data);
-          console.log(res);
+          console.log(res.data);
         })
         .catch((err) => {
           console.error(err);
@@ -54,12 +54,9 @@ const ListEmployeeComponent = () => {
                                <button  style={{position:"relative",left: "20px"}}  type="button" class="btn btn-secondary">Delect</button>
 
                             </td>
-                           
+                    
                           
                         </tr>)}
-
-
-
 
                 </tbody>
             </table>

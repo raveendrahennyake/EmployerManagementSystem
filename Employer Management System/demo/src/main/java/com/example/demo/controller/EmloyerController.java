@@ -17,8 +17,8 @@ public class EmloyerController {
     public  List <Employer> getEmployers () {
         return emloyerService.getEmployers();
     }
-    @GetMapping("/{id}")
-    public Optional <Employer>getEmployer (@PathVariable Integer id) {
+    @GetMapping("/employer/{id}")
+    public Optional<Employer> getEmployer(@PathVariable Integer id) {
         return emloyerService.getEmployer(id);
     }
     @PostMapping("/addEmployer")

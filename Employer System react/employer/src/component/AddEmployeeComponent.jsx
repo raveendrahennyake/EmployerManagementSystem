@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EmployerService from './Service/EmployerService';
 import { Link} from 'react-router-dom';
@@ -6,13 +6,11 @@ import { Link} from 'react-router-dom';
 const AddEmployeeComponent = () => {
    const {id} = useParams();
 
-       
     const [employer_name, setEmployerName] = useState("");
     const [phone_number, setPhoneNumber] = useState("");
     const [email_address, setEmailAddress] = useState("");
 
     const employer = { employer_name, phone_number, email_address };
-
 
     const postEmployer = (e) => {
         e.preventDefault();
@@ -41,9 +39,25 @@ const AddEmployeeComponent = () => {
         }
         
     }
-    
-    
-   
+
+    useEffect(()=>{
+        if (id) {
+             EmployerService.getEmployer(id)
+             .then((res)=>{
+                 console.log('Employer data fetched:', res.data);
+                setEmployerName(res.data.employerName);
+                setPhoneNumber(res.data.phoneNumber);
+                setEmailAddress(res.data.emailAddress);
+              
+
+             }).catch((err)=>{
+                console.log(err);
+             })
+
+        }
+       
+    },[id]);
+
     return (
         <div>
             <div className='container mt-5'>
@@ -51,7 +65,6 @@ const AddEmployeeComponent = () => {
                     <h2 className='text-center'>{title()}</h2>
                 </div>
                 <div className='card-body'>
-                   
                         <div className='form-group mb-2'>
                             <input
                                 value={employer_name}

@@ -7,6 +7,9 @@ const getEmployers = () => {
   return axios.get(`${BASE_URL}/employers`);
 };
 
+const getEmployer = (id) => {
+  return axios.get(`${BASE_URL}/employer/${id}`);
+};
 const postEmployers=(employer)=>{
   return axios.post(`${BASE_URL}/addEmployer`, employer);
 }
@@ -18,9 +21,11 @@ const putEmployers=(employer,id)=>{
 const EmployerService = {
   getEmployers,
   postEmployers,
-  putEmployers
+  putEmployers,
+  getEmployer
  
 };
+
 
 
 export default EmployerService;

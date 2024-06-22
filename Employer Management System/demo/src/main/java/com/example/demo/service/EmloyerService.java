@@ -5,6 +5,7 @@ import com.example.demo.repository.EmployerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -18,11 +19,9 @@ public class EmloyerService {
     public List<Employer> getEmployers() {
         return employerRepository.findAll();
     }
-
-    public Optional<Employer> getEmployer(Integer id) {
-        return employerRepository.findById(id);
-    }
-
+public Optional<Employer> getEmployer(@PathVariable Integer id) {
+    return employerRepository.findById(id);
+}
     public ResponseEntity<Employer> addEmployer(@RequestBody EmployerResponce employerResponce) {
         Employer employer = new Employer();
         employer.setEmployerName(employerResponce.getEmployer_name());
