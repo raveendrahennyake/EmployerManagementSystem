@@ -51,7 +51,7 @@ const AddEmployeeComponent = () => {
               
 
              }).catch((err)=>{
-                console.log(err);
+                
              })
 
         }
