@@ -32,6 +32,7 @@ public Optional<Employer> getEmployer(@PathVariable Integer id) {
         if (optionalEmployer.isPresent()){
             Employer employer = optionalEmployer.get();
             employer.setEmployerId(id);
+            employer.setPhoneNumber(PhoneNumber);
             employer.setEmployerName(EmployerName);
             employer.setEmailAddress(emailAddress);
             employerRepository.save(employer);

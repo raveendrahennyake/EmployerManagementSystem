@@ -7,14 +7,14 @@ const AddEmployeeComponent = () => {
    const {id} = useParams();
 
     const [employerName, setEmployerName] = useState("");
-    const [PhoneNumber, setPhoneNumber] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [emailAddress, setEmailAddress] = useState("");
 
-    const employer = {employerName,PhoneNumber,emailAddress };
+    const employer = {employerName,phoneNumber,emailAddress };
 
     const postEmployer = (e) => {
         e.preventDefault();
-        if(employer.employerName!=='' &&  employer.PhoneNumber.length>10 &&employer.emailAddress !==''){
+        if(employer.employerName!=='' &&  employer.phoneNumber.length>10 &&employer.emailAddress !==''){
             if (id) {
                 EmployerService.putEmployers(employer).then(()=>{
                     console.log("Your Details Update")
@@ -58,11 +58,12 @@ const AddEmployeeComponent = () => {
              .then((res)=>{
                  console.log('Employer data fetched:', res.data);
                 setEmployerName(res.data.employerName);
-                setPhoneNumber(res.data.PhoneNumber);
+                setPhoneNumber(res.data.phoneNumber);
                 setEmailAddress(res.data.emailAddress);
               
 
              }).catch((err)=>{
+                console.log(err)
                 
              })
 
@@ -89,7 +90,7 @@ const AddEmployeeComponent = () => {
 
                         <div className='form-group mb-2'>
                             <input
-                                value={PhoneNumber}
+                                value={phoneNumber}
                                 className='form-control'
                                 type="text"
                                 placeholder='Enter Your Phone Number'
