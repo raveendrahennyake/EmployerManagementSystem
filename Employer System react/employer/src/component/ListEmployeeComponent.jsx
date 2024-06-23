@@ -42,7 +42,7 @@ const ListEmployeeComponent = () => {
                         <tr employerId={employee.employerId}>
                             <td>{employee.employerId}</td>
                             <td>{employee.employerName}</td>
-                            <td>{employee.phoneNumber}</td>
+                            <td>{employee.PhoneNumber}</td>
                             <td>{employee.emailAddress}</td>
                             <td>
                             <Link to={`/add-employee/${employee.employerId}`}>

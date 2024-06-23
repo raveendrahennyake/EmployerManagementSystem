@@ -1,30 +1,32 @@
 package com.example.demo.DTO.Responce;
 public class EmployerResponce {
-    private String employer_name;
-    public String getEmployer_name() {
-        return employer_name;
-    }
-    public Integer getPhone_number() {
-        return phone_number;
+    public EmployerResponce(String employerName, String emailAddress, Integer phoneNumber) {
+        EmployerName = employerName;
+        this.emailAddress = emailAddress;
+        PhoneNumber = phoneNumber;
     }
 
-    public String getEmail_address() {
-        return email_address;
+    public String getEmployerName() {
+        return EmployerName;
+    }
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+    public Integer getPhoneNumber() {
+        return PhoneNumber;
+    }
+    private String EmployerName;
+    private String emailAddress;
+    private Integer PhoneNumber;
+    public void setEmployerName(String employerName) {
+        EmployerName = employerName;
     }
 
-    public void setEmployer_name(String employer_name) {
-        this.employer_name = employer_name;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
-    public void setPhone_number(Integer phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(Integer phoneNumber) {
+        PhoneNumber = phoneNumber;
     }
-
-    public void setEmail_address(String email_address) {
-        this.email_address = email_address;
-    }
-
-    private Integer phone_number;
-    private String email_address;
-
 }
