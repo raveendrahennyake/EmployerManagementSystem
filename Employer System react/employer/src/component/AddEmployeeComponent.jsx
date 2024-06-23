@@ -15,13 +15,25 @@ const AddEmployeeComponent = () => {
     const postEmployer = (e) => {
         e.preventDefault();
         if(employer.employer_name!=='' &&  employer.phone_number.length>10 &&employer.email_address !==''){
-            EmployerService.postEmployers(employer)
+            if (id) {
+                EmployerService.putEmployers(employer).then(()=>{
+                    console.log("Your Details Update")
+                }).catch((err)=>{
+                    console.log(err)
+
+                })
+
+            }else {
+                EmployerService.postEmployers(employer)
             .then(() => {
                 console.log('Employer posted successfully');
             })
             .catch((err) => {
                 console.log(err);
             });
+
+            }
+            
 
         }
         else {
