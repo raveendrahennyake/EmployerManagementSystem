@@ -6,15 +6,15 @@ import { Link} from 'react-router-dom';
 const AddEmployeeComponent = () => {
    const {id} = useParams();
 
-    const [employer_name, setEmployerName] = useState("");
-    const [phone_number, setPhoneNumber] = useState("");
-    const [email_address, setEmailAddress] = useState("");
+    const [employerName, setEmployerName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [emailAddress, setEmailAddress] = useState("");
 
-    const employer = { employer_name, phone_number, email_address };
+    const employer = {employerName,phoneNumber,emailAddress };
 
     const postEmployer = (e) => {
         e.preventDefault();
-        if(employer.employer_name!=='' &&  employer.phone_number.length>10 &&employer.email_address !==''){
+        if(employer.employerName!=='' &&  employer.phoneNumber.length>10 &&employer.emailAddress !==''){
             if (id) {
                 EmployerService.putEmployers(employer).then(()=>{
                     console.log("Your Details Update")
@@ -79,7 +79,7 @@ const AddEmployeeComponent = () => {
                 <div className='card-body'>
                         <div className='form-group mb-2'>
                             <input
-                                value={employer_name}
+                                value={employerName}
                                 className='form-control'
                                 type="text"
                                 placeholder='Enter Your Name'
@@ -89,7 +89,7 @@ const AddEmployeeComponent = () => {
 
                         <div className='form-group mb-2'>
                             <input
-                                value={phone_number}
+                                value={phoneNumber}
                                 className='form-control'
                                 type="text"
                                 placeholder='Enter Your Phone Number'
@@ -99,7 +99,7 @@ const AddEmployeeComponent = () => {
 
                         <div className='form-group mb-2'>
                             <input
-                                value={email_address}
+                                value={emailAddress}
                                 className='form-control'
                                 type="text"
                                 placeholder='Enter Your Email Address'
