@@ -27,14 +27,14 @@ public Optional<Employer> getEmployer(@PathVariable Integer id) {
         employerRepository.save(employer);
         return ResponseEntity.ok(employer);
     }
-    public ResponseEntity <String> updateEmployer (Integer id,String NEwEmployerName,Integer NEwPhoneNumber,String NEwemailAddress  ) {
+    public ResponseEntity <String> updateEmployer (Integer id, String newEmployerName, Integer newPhoneNumber, String newEmailAddress  ) {
         Optional<Employer> optionalEmployer = employerRepository.findById(id);
         if (optionalEmployer.isPresent()){
             Employer employer = optionalEmployer.get();
             employer.setEmployerId(id);
-            employer.setPhoneNumber(NEwPhoneNumber);
-            employer.setEmployerName(NEwEmployerName);
-            employer.setEmailAddress(NEwemailAddress);
+            employer.setPhoneNumber(newPhoneNumber);
+            employer.setEmployerName(newEmployerName);
+            employer.setEmailAddress(newEmailAddress);
             employerRepository.save(employer);
             return ResponseEntity.ok("It is correct ");
         }

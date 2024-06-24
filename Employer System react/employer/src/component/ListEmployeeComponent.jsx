@@ -20,6 +20,17 @@ const ListEmployeeComponent = () => {
     fetchEmployers();
   },[]);
 
+  const delectEmployers=(e,id)=>{
+     e.preventDefault();
+    EmployerService.delectEmployer(id).then((
+    )=>{
+
+    }).catch((err)=>{
+      console.log(err)
+    })
+
+  }
+
 
   return (
     <div>
@@ -51,7 +62,11 @@ const ListEmployeeComponent = () => {
                               </button>
                             </Link>
 
-                               <button  style={{position:"relative",left: "20px"}}  type="button" class="btn btn-secondary">Delect</button>
+                               <button onClick={(e)=>{
+                                delectEmployers(e,employee.employerId)
+
+
+                               }}  style={{position:"relative",left: "20px"}}  type="button" class="btn btn-secondary">Delect</button>
 
                             </td>
                     

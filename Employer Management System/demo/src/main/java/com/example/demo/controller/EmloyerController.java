@@ -26,11 +26,12 @@ public class EmloyerController {
 
         return emloyerService.addEmployer(employerResponce);
     }
-    @PutMapping("/UpdateEmployer")
-    public ResponseEntity <String> updateEmployer (@RequestParam Integer id,@RequestParam String NewEmployerName,@RequestParam Integer NEwPhoneNumber,@RequestParam String NewemailAddress) {
-        return emloyerService.updateEmployer(id,NewEmployerName,NEwPhoneNumber,NewemailAddress);
+    @PutMapping("/UpdateEmployer/{id}")
+    public ResponseEntity<String> updateEmployer(@PathVariable Integer id, @RequestBody Employer employer) {
+        return emloyerService.updateEmployer(id, employer.getEmployerName(), employer.getPhoneNumber(), employer.getEmailAddress());
     }
 
+    @DeleteMapping("/DelectEmployer/{id}")
     public ResponseEntity <String> delectEmployer (@RequestParam Integer id) {
         return  emloyerService.delectEmployer(id);
 
