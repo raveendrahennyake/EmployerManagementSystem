@@ -27,14 +27,14 @@ public Optional<Employer> getEmployer(@PathVariable Integer id) {
         employerRepository.save(employer);
         return ResponseEntity.ok(employer);
     }
-    public ResponseEntity <String> updateEmployer (Integer id,String EmployerName,Integer PhoneNumber,String emailAddress  ) {
+    public ResponseEntity <String> updateEmployer (Integer id,String NEwEmployerName,Integer NEwPhoneNumber,String NEwemailAddress  ) {
         Optional<Employer> optionalEmployer = employerRepository.findById(id);
         if (optionalEmployer.isPresent()){
             Employer employer = optionalEmployer.get();
             employer.setEmployerId(id);
-            employer.setPhoneNumber(PhoneNumber);
-            employer.setEmployerName(EmployerName);
-            employer.setEmailAddress(emailAddress);
+            employer.setPhoneNumber(NEwPhoneNumber);
+            employer.setEmployerName(NEwEmployerName);
+            employer.setEmailAddress(NEwemailAddress);
             employerRepository.save(employer);
             return ResponseEntity.ok("It is correct ");
         }
@@ -43,6 +43,25 @@ public Optional<Employer> getEmployer(@PathVariable Integer id) {
         }
 
     }
+
+    public  ResponseEntity <String> delectEmployer (Integer id) {
+         Optional <Employer> optionalEmployer=employerRepository.findById(id);
+         if (optionalEmployer.isPresent()){
+             employerRepository.deleteById(id);
+             return ResponseEntity.ok("Employer is Delect");
+
+
+         }else {
+             return ResponseEntity.ok().build();
+         }
+
+
+
+
+
+    }
+
+
 
 }
 

@@ -27,7 +27,13 @@ public class EmloyerController {
         return emloyerService.addEmployer(employerResponce);
     }
     @PutMapping("/UpdateEmployer")
-    public ResponseEntity <String> updateEmployer (@RequestParam Integer id,@RequestParam String EmployerName,@RequestParam Integer PhoneNumber,@RequestParam String emailAddress) {
-        return emloyerService.updateEmployer(id,EmployerName,PhoneNumber,emailAddress);
+    public ResponseEntity <String> updateEmployer (@RequestParam Integer id,@RequestParam String NewEmployerName,@RequestParam Integer NEwPhoneNumber,@RequestParam String NewemailAddress) {
+        return emloyerService.updateEmployer(id,NewEmployerName,NEwPhoneNumber,NewemailAddress);
     }
+
+    public ResponseEntity <String> delectEmployer (@RequestParam Integer id) {
+        return  emloyerService.delectEmployer(id);
+
+    }
+
 }
