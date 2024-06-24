@@ -32,7 +32,7 @@ public class EmloyerController {
     }
 
     @DeleteMapping("/DelectEmployer/{id}")
-    public ResponseEntity <String> delectEmployer (@RequestParam Integer id) {
+    public ResponseEntity <String> delectEmployer (@PathVariable Integer id) {
         return  emloyerService.delectEmployer(id);
 
     }

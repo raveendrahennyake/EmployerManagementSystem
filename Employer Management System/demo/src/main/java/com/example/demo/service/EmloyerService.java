@@ -41,16 +41,12 @@ public Optional<Employer> getEmployer(@PathVariable Integer id) {
         else {
             return ResponseEntity.notFound().build();
         }
-
     }
-
     public  ResponseEntity <String> delectEmployer (Integer id) {
          Optional <Employer> optionalEmployer=employerRepository.findById(id);
          if (optionalEmployer.isPresent()){
              employerRepository.deleteById(id);
              return ResponseEntity.ok("Employer is Delect");
-
-
          }else {
              return ResponseEntity.ok().build();
          }

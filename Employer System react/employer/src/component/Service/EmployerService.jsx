@@ -18,9 +18,8 @@ const putEmployers = (employer, id) => {
   return axios.put(`${BASE_URL}/UpdateEmployer/${id}`, employer);
 };
 
-const delectEmployer=(employer,id)=>{
-  return axios.delete(`${BASE_URL}/DelectEmployer/${id}`,employer);
-  
+const delectEmployer=(id)=>{
+  return axios.delete(`${BASE_URL}/DelectEmployer/${id}`)
 
 }
 
@@ -30,6 +29,7 @@ const EmployerService = {
   putEmployers,
   getEmployer,
   delectEmployer
+
  
 };
 

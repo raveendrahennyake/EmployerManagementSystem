@@ -20,16 +20,19 @@ const ListEmployeeComponent = () => {
     fetchEmployers();
   },[]);
 
-  const delectEmployers=(e,id)=>{
-     e.preventDefault();
-    EmployerService.delectEmployer(id).then((
-    )=>{
-
+  const delectEmployer=(event,id)=>{
+    event.preventDefault();
+    EmployerService.delectEmployer(id).then(()=>{
+      console.log("Employer Is Delect")
     }).catch((err)=>{
-      console.log(err)
+      console.log(err);
+
     })
 
+
+
   }
+
 
 
   return (
@@ -62,11 +65,12 @@ const ListEmployeeComponent = () => {
                               </button>
                             </Link>
 
-                               <button onClick={(e)=>{
-                                delectEmployers(e,employee.employerId)
+                               <button onClick={(event)=>{
+                                delectEmployer(event,employee.employerId)
 
-
-                               }}  style={{position:"relative",left: "20px"}}  type="button" class="btn btn-secondary">Delect</button>
+                               }}
+                                style={{position:"relative",left: "20px"}}  type="button" class="btn btn-secondary">Delect
+                                </button>
 
                             </td>
                     
@@ -75,18 +79,6 @@ const ListEmployeeComponent = () => {
 
                 </tbody>
             </table>
-            
-            
-
-
-
-
-
-
-
-
-
-
         </div>
         
       
