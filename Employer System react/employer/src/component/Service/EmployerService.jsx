@@ -14,9 +14,9 @@ const postEmployers=(employer)=>{
   return axios.post(`${BASE_URL}/addEmployer`, employer);
 }
 
-const putEmployers=(employer,id)=>{
-  return axios.put(`${BASE_URL}/UpdateEmployer`,employer,id)
-}
+const putEmployers = (employer, id) => {
+  return axios.put(`${BASE_URL}/UpdateEmployer/${id}`, employer);
+};
 
 const EmployerService = {
   getEmployers,
@@ -25,6 +25,7 @@ const EmployerService = {
   getEmployer
  
 };
+
 
 
 

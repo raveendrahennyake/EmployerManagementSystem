@@ -14,10 +14,11 @@ const AddEmployeeComponent = () => {
 
     const postEmployer = (e) => {
         e.preventDefault();
-        if(employer.employerName!=='' &&  employer.phoneNumber.length>10 &&employer.emailAddress !==''){
+        if(employer.employerName!=='' &&  employer.phoneNumber &&employer.emailAddress !==''){
             if (id) {
-                EmployerService.putEmployers(employer).then(()=>{
-                    console.log("Your Details Update")
+                EmployerService.putEmployers(employer,id).then((response)=>{
+                    console.log(response.data,"Your Details Update")
+                   
                 }).catch((err)=>{
                     console.log(err)
 
