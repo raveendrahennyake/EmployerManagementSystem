@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+import com.example.demo.DTO.Request.EmployeRequst;
 import com.example.demo.DTO.Responce.EmployerResponce;
 import com.example.demo.model.Employer;
 import com.example.demo.service.EmloyerService;
@@ -21,10 +22,14 @@ public class EmloyerController {
     public Optional<Employer> getEmployer(@PathVariable Integer id) {
         return emloyerService.getEmployer(id);
     }
-    @PostMapping("/addEmployer")
-    public ResponseEntity <Employer> addEmployer (@RequestBody EmployerResponce employerResponce) {
+//    @PostMapping("/addEmployer")
+//    public ResponseEntity <Employer> addEmployer (@RequestBody EmployerResponce employerResponce) {
+//        return emloyerService.addEmployer(employerResponce);
+//    }
 
-        return emloyerService.addEmployer(employerResponce);
+    @PostMapping("/addEmployer")
+    public ResponseEntity <Employer> addEmployer (@RequestBody EmployeRequst employeRequst) {
+        return emloyerService.addEmployer(employeRequst);
     }
     @PutMapping("/UpdateEmployer/{id}")
     public ResponseEntity<String> updateEmployer(@PathVariable Integer id, @RequestBody Employer employer) {

@@ -1,4 +1,5 @@
 package com.example.demo.service;
+import com.example.demo.DTO.Request.EmployeRequst;
 import com.example.demo.DTO.Responce.EmployerResponce;
 import com.example.demo.model.Employer;
 import com.example.demo.repository.EmployerRepository;
@@ -24,6 +25,15 @@ public Optional<Employer> getEmployer(@PathVariable Integer id) {
         employer.setEmployerName(employerResponce.getEmployerName());
         employer.setPhoneNumber(employerResponce.getPhoneNumber());
         employer.setEmailAddress(employerResponce.getEmailAddress());
+        employerRepository.save(employer);
+        return ResponseEntity.ok(employer);
+    }
+
+    public ResponseEntity<Employer> addEmployer(@RequestBody EmployeRequst employeRequst) {
+        Employer employer = new Employer();
+        employer.setEmployerName(employeRequst.getEmployerName());
+        employer.setPhoneNumber(employeRequst.getPhoneNumber());
+        employer.setEmailAddress(employeRequst.getEmailAddress());
         employerRepository.save(employer);
         return ResponseEntity.ok(employer);
     }
